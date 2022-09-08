@@ -19,7 +19,8 @@ function HomePage() {
                         </Text>
                     </Heading>
                     <Text color={'gray.500'}>
-                        We are Open Sourced so the Community can help and learn. We also Encrypt all User Data so that no one is able to view your data and that is for all data.
+                        We are Open Sourced so the Community can help and learn. We also Encrypt all User Data so that
+                        no one is able to view your data and that is for all data.
                     </Text>
                     <Stack
                         direction={'column'}
@@ -46,20 +47,24 @@ function HomePage() {
                                 color={useColorModeValue('gray.800', 'gray.300')}
                                 w={71}
                                 position={'absolute'}
-                                right={-71}
+                                right={8}
                                 top={'10px'}
                             />
                             <Text
                                 fontSize={'lg'}
                                 fontFamily={'Caveat'}
                                 position={'absolute'}
-                                right={'-125px'}
+                                right={'-25px'}
                                 top={'-15px'}
                                 transform={'rotate(10deg)'}>
                                 View our progress!
                             </Text>
                         </Box>
 
+
+                        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+                            This page will update as we get closer to release.
+                        </Button>
                     </Stack>
                 </Stack>
             </Container>
