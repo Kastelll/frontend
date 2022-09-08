@@ -8,7 +8,7 @@ function MyApp({Component, pageProps}) {
             <Head>
                 <title>Kastel - Coming Soon</title>
                 <meta property="og:title" content={'Kastel - Coming Soon'} key="title"/>
-                <meta property="og:url" content={'https://statuspage.theteacup.dev'}/>
+                <meta property="og:url" content={'https://kastelapp.com'}/>
             </Head>
             <Component {...pageProps} />
         </ChakraProvider>
