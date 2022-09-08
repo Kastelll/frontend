@@ -36,12 +36,10 @@ function HomePage() {
                                 _hover={{
                                     bg: 'green.500',
                                 }}>
-                                More Info
+                                Click Me
                             </Button>
                         </a>
-                        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-                            This page will update as we get closer to release.
-                        </Button>
+
                         <Box>
                             <Icon
                                 as={Arrow}
@@ -61,6 +59,7 @@ function HomePage() {
                                 View our progress!
                             </Text>
                         </Box>
+
                     </Stack>
                 </Stack>
             </Container>
