@@ -42,7 +42,7 @@ function HomePage() {
                         fontSize={{base: '2xl', sm: '4xl', md: '6xl'}}
                         lineHeight={'110%'}>
                         Welcome to Kastel <br/>
-                        <Text as={'span'} color={'green.400'}>
+                        <Text as={'span'} color={'purple.300'}>
                             We are a Chatting App like Discord & Guilded.
                         </Text>
                     </Heading>
@@ -59,11 +59,11 @@ function HomePage() {
                         <a href={"/github"} target={'_blank'} rel="noreferrer">
                             <Button
                                 colorScheme={'green'}
-                                bg={'green.400'}
+                                bg={'purple.400'}
                                 rounded={'full'}
                                 px={6}
                                 _hover={{
-                                    bg: 'green.500',
+                                    bg: 'purple.500',
                                 }}>
                                 Click Me
                             </Button>
@@ -90,7 +90,7 @@ function HomePage() {
                         </Box>
 
 
-                        <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+                        <Button variant={'link'} colorScheme={'purple'} size={'sm'}>
                             This page will update as we get closer to release.
                         </Button>
                     </Stack>

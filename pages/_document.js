@@ -1,5 +1,6 @@
 import NextDocument, {Head, Html, Main, NextScript} from 'next/document'
 import {ColorModeScript} from "@chakra-ui/react";
+import Script from "next/script";
 
 export default class Document extends NextDocument {
     render() {
