@@ -56,7 +56,7 @@ function HomePage() {
                         align={'center'}
                         alignSelf={'center'}
                         position={'relative'}>
-                        <a href={"/github"} target={'_blank'} rel="noreferrer">
+                        <a href={"https://github.com/Kastelll"} target={'_blank'} rel="noreferrer">
                             <Button
                                 colorScheme={'green'}
                                 bg={'purple.400'}
