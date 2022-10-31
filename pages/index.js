@@ -2,19 +2,69 @@ import {
     Box,
     Button,
     Container,
-    createIcon, FormControl,
+    FormControl,
     Heading,
     Input,
     Stack,
     Text,
     useColorMode,
     useColorModeValue,
+    useToast,
 } from '@chakra-ui/react';
 import {MoonIcon, SunIcon} from "@chakra-ui/icons";
 import csrf from "../utils/csrf";
+import fetchJson from "../utils/fetchJson";
 
 function HomePage({csrfToken}) {
     const {colorMode, toggleColorMode} = useColorMode();
+    const toast = useToast();
+
+    const subscribe = async event => {
+        event.preventDefault();
+
+        // send request to api
+        let email = event.target.email.value;
+
+        let subscribe = await fetchJson('/api/subscribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'CSRF-Token': csrfToken || null
+            },
+            body: JSON.stringify({
+                email: email,
+            })
+        })
+
+        if (!subscribe.error) {
+            toast({
+                title: 'Sign up successful.',
+                description: `Thank you for signing up!`,
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+            })
+        } else {
+            if (subscribe.response === 'Conflict') {
+                toast({
+                    title: 'Signup Error',
+                    description: `You are already subscribed.`,
+                    status: 'error',
+                    duration: 9000,
+                    isClosable: true,
+                })
+            } else {
+                toast({
+                    title: 'API Error',
+                    description: `Error Occurred, please try again later.`,
+                    status: 'error',
+                    duration: 9000,
+                    isClosable: true,
+                })
+            }
+        }
+
+    }
 
     return (
         <>
@@ -60,18 +110,10 @@ function HomePage({csrfToken}) {
                         position={'relative'}>
 
                         <Stack
-                            direction={{ base: 'column', md: 'row' }}
+                            direction={{base: 'column', md: 'row'}}
                             as={'form'}
                             spacing={'12px'}
-                            onSubmit={(e) => {
-                                e.preventDefault();
-
-                                // send request to api
-                                let email = e.target.email.value;
-                                console.log(email)
-
-
-                            }}>
+                            onSubmit={subscribe}>
                             <FormControl>
                                 <Input
                                     variant={'solid'}
@@ -88,7 +130,7 @@ function HomePage({csrfToken}) {
                                     aria-label={'Your Email'}
                                 />
                             </FormControl>
-                            <FormControl w={{ base: '100%', md: '40%' }}>
+                            <FormControl w={{base: '100%', md: '40%'}}>
                                 <Button
                                     bg={'purple.500'}
                                     _hover={{
